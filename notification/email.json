@@ -1,0 +1,22 @@
+{
+  "base": {
+    "project": "Test Project",
+    "environment": "test",
+    "comment": "comment",
+    "reportLink": "",
+    "language": "en",
+    "messenger": "email",
+    "allureFolder": "build/allure-report/",
+    "enableChart": "true"
+  },
+  "mail":
+  {
+    "host": "10.1.1.1",
+    "port": "25",
+    "username": "",
+    "password": "",
+    "enableSSL": false,
+    "from": "admin@example.com",
+    "recipient": "user@example.com"
+  }
+}
