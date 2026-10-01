@@ -1,9 +1,10 @@
 package testui;
 
-import core.actions.BrowserActions;
+import core.browser.UserSession;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import page.YaPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,9 +16,12 @@ public class MyFirstUiTest extends BaseUiTest {
     public void testOpenSite() {
         logger.info("Start OpenSite test");
         String url = "https://ya.ru";
-        BrowserActions playwright = new BrowserActions();
-        playwright.open(url);
-        playwright.takeScreenshot();
+        UserSession session = browser.newSession();
+        session.navigate(url);
+        YaPage yaPage = new YaPage(session.getPage());
+        yaPage.takeScreenshot();
+        assertThat(yaPage.getGeo().isVisible()).isTrue();
+        assertThat(yaPage.getWeather().isVisible()).isTrue();
         logger.info("Finish OpenSite test");
     }
 
